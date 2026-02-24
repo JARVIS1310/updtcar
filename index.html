@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMW M4 - Performance Redefined</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            overflow-x: hidden;
+            background: #000;
+            color: #fff;
+        }
+
+        .background video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.7;
+        }
+
+        /* ===== NAVBAR ===== */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu a:hover {
+            color: #1c69d4;
+        }
+
+        /* Hamburger button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: #fff;
+            transition: 0.3s;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 5px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -5px);
+        }
+
+        /* Desktop: show menu, hide toggle */
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+            }
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        /* ===== MOBILE NAV ===== */
+        @media (max-width: 767px) {
+            .top-nav {
+                padding: 1rem 5%;
+            }
+
+            .logo-img {
+                height: 40px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background: rgba(0, 0, 0, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: center;
+                padding: 2rem 0;
+                z-index: 999;
+                transition: left 0.3s ease;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-menu li a {
+                display: block;
+                padding: 1rem;
+                font-size: 1.5rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+            }
+
+            .hero-section {
+                padding: 6rem 5% 2rem;
+                min-height: 80vh;
+            }
+
+            .hero-title {
+                font-size: clamp(2rem, 8vw, 5rem);
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-content {
+                font-size: clamp(0.9rem, 4vw, 1.1rem);
+                max-width: 100%;
+            }
+
+            .cta-section {
+                padding: 3rem 5%;
+            }
+
+            .cta-title {
+                font-size: clamp(1.8rem, 6vw, 2.5rem);
+                margin-bottom: 2rem;
+            }
+
+            .cta-buttons {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .cta-btn {
+                padding: 1.5rem;
+                font-size: 1rem;
+            }
+
+            .video-section {
+                padding: 2rem 0;
+            }
+
+            .video-overlay {
+                padding: 1rem;
+                font-size: clamp(1.2rem, 5vw, 2rem);
+            }
+
+            .features-section {
+                padding: 4rem 5%;
+            }
+
+            .section-title {
+                font-size: clamp(1.8rem, 6vw, 2.5rem);
+                margin-bottom: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .feature-card {
+                padding: 1.5rem;
+            }
+
+            .feature-card img {
+                margin-bottom: 1rem;
+            }
+
+            .feature-text {
+                font-size: 0.95rem;
+            }
+
+            .charging-section {
+                padding: 4rem 5%;
+            }
+
+            .charging-content {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .charging-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .gallery-section {
+                padding: 4rem 5%;
+            }
+
+            .gallery-track {
+                gap: 10px;
+            }
+
+            .gallery-track img {
+                height: 200px;
+                width: 200px;
+            }
+
+            .quote-section {
+                padding: 4rem 5%;
+            }
+
+            .quote {
+                font-size: clamp(1.2rem, 5vw, 2rem);
+                line-height: 1.3;
+            }
+        }
+
+        /* Tablet styles */
+        @media (max-width: 1024px) and (min-width: 768px) {
+            .hero-section {
+                padding: 7rem 5% 3rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+            }
+
+            .charging-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .gallery-track img {
+                height: 300px;
+                width: 300px;
+            }
+        }
+
+        /* Small screens */
+        @media (max-width: 480px) {
+            .top-nav {
+                padding: 0.8rem 5%;
+            }
+
+            .logo-img {
+                height: 35px;
+            }
+
+            .hero-section {
+                padding: 5rem 5% 2rem;
+            }
+
+            .hero-title {
+                font-size: clamp(1.8rem, 10vw, 4rem);
+            }
+
+            .cta-section {
+                padding: 2rem 5%;
+            }
+
+            .video-section {
+                padding: 1.5rem 0;
+            }
+
+            .features-section {
+                padding: 3rem 5%;
+            }
+
+            .charging-section {
+                padding: 3rem 5%;
+            }
+
+            .gallery-section {
+                padding: 3rem 5%;
+            }
+
+            .quote-section {
+                padding: 3rem 5%;
+            }
+
+            .gallery-track img {
+                height: 150px;
+                width: 150px;
+            }
+        }
+        /* ===== END NAVBAR ===== */
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 8rem 5% 4rem;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 900;
+            color: #fff;
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            line-height: 1.8;
+            color: #e0e0e0;
+            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.9);
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .cta-section {
+            padding: 4rem 5%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-family: 'Bebas Neue', sans-serif;
+            margin-bottom: 3rem;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .cta-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1500px;
+        }
+
+        .cta-btn {
+            padding: 2rem;
+            background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+            border: 2px solid #4a4a4a;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-5px);
+            border-color: #1c69d4;
+            box-shadow: 0 10px 30px rgba(28, 105, 212, 0.3);
+        }
+
+        .video-section {
+            padding: 4rem 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .video-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-overlay {
+            text-align: center;
+            padding: 2rem;
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 3px;
+        }
+
+        .features-section {
+            padding: 6rem 5%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-family: 'Bebas Neue', sans-serif;
+            margin-bottom: 4rem;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(28, 105, 212, 0.5);
+            box-shadow: 0 15px 40px rgba(28, 105, 212, 0.2);
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #d0d0d0;
+        }
+
+        .gallery-section {
+            padding: 6rem 5%;
+            background: rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: 20px;
+            animation: scroll 10s linear infinite;
+            will-change: transform;
+        }
+
+        .gallery-track img {
+            height: 400px;
+            width: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .charging-section {
+            padding: 6rem 5%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .charging-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d0d0d0;
+            margin-bottom: 3rem;
+        }
+
+        .charging-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .charging-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .quote-section {
+            padding: 6rem 5%;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .quote {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            font-family: 'Bebas Neue', sans-serif;
+            font-style: italic;
+            max-width: 1000px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <video src="https://res.cloudinary.com/ddkouwumb/video/upload/v1771947613/BMW_M4_gdjdab.mp4" autoplay muted loop playsinline></video>
+    </div>
+
+    <nav class="top-nav">
+        <img src="bmw new logo.svg" alt="BMW Logo" class="logo-img">
+        <div class="menu-toggle" id="menuToggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html">BMW</a></li>
+            <li><a href="ferrari.html">FERRARI</a></li>
+            <li><a href="bugatti.html">BUGATTI</a></li>
+            <li><a href="mclaren.html">MCLAREN</a></li>
+            <li><a href="mercedes.html">MERCEDES</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            const menuToggle = document.getElementById('menuToggle');
+            navMenu.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        }
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
+                document.getElementById('menuToggle').classList.remove('active');
+            });
+        });
+    </script>
+
+    <section class="hero-section">
+        <h1 class="hero-title">BMW M4</h1>
+        <div class="hero-content">
+            <p>The BMW M4 is built for those who demand more than just driving. It's precision engineering wrapped in bold design, delivering power that thrills every time you hit the road. With 510 horsepower and a twin-turbocharged engine, the M4 rockets from 0 to 100 km/h in just 3.9 seconds. It's performance born from the racetrack, refined for everyday roads. Step inside and experience innovation. The BMW iDrive 8 system and digital cockpit put every control at your fingertips, blending luxury with cutting-edge technology.</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2 class="cta-title">FIND YOUR BMW</h2>
+        <div class="cta-buttons">
+            <div class="cta-btn" onclick="window.location.href='https://www.bmw.in/en-in/sl/stocklocator/results?filters=%257B%2522IS_INSTALLMENT%2522%253Atrue%252C%2522PRODUCT_CATEGORY_TYPE%2522%253A%255B%2522LOAN%2522%255D%257D'">
+                Find a new car
+            </div>
+            <div class="cta-btn" onclick="window.location.href='https://www.bmw.in/forms/tda/test-drive-request.html'">
+                Book your test drive
+            </div>
+            <div class="cta-btn" onclick="window.location.href='https://www.bmw.in/en/configurator.html'">
+                Customize your own
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <div class="video-overlay">THE NEW WAY TO LEAVE BORING DRIVING BEHIND</div>
+        <div class="video-container">
+            <video src="https://res.cloudinary.com/ddkouwumb/video/upload/v1771947389/BMW_AD_m9yt8q.mp4" autoplay muted loop playsinline></video>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <h2 class="section-title">INTERIOR DESIGN HIGHLIGHTS</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="interior1.png" alt="BMW Interior">
+                <p class="feature-text">The BMW M interior redefines comfort and sportiness with meticulously designed performance seats. Wrapped in premium Merino leather, the seats offer a perfect balance between luxurious softness and firm support. The cabin's dual-tone design, highlighted by deep blue leather and rich brown accents, creates a bold yet elegant atmosphere. Together with the driver-focused layout, it transforms every journey into an immersive experience.</p>
+            </div>
+            <div class="feature-card">
+                <img src="interior2.png" alt="BMW Interior">
+                <p class="feature-text">The BMW Curved Display seamlessly integrates a fully digital instrument cluster with a high-resolution infotainment screen, creating a futuristic driver-focused environment. The M steering wheel, wrapped in premium leather with tri-color stitching, delivers both comfort and control. With ergonomically placed multifunction buttons and red M1/M2 performance toggles, drivers can instantly switch between custom driving modes — from comfort cruising to track-ready dynamics.</p>
+            </div>
+            <div class="feature-card">
+                <img src="interior3.png" alt="BMW Interior">
+                <p class="feature-text">The rear seating of this BMW is crafted to deliver unmatched comfort, transforming every drive into a luxurious retreat. Designed with ergonomically contoured seats, passengers enjoy generous legroom, optimal lumbar support, and the finest upholstery materials for lasting relaxation. Premium cushioning adapts to every posture, ensuring long-distance journeys remain fatigue-free.</p>
+            </div>
+            <div class="feature-card">
+                <img src="interior4.png" alt="BMW Interior">
+                <p class="feature-text">The rear of this BMW is designed to be a first-class lounge on wheels, offering passengers advanced rear-seat entertainment displays for an immersive travel experience. Mounted seamlessly behind the front seats, these high-resolution screens allow rear occupants to enjoy movies, stream content, or even stay productive on the go.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <h2 class="section-title">EXTERIOR DESIGN HIGHLIGHTS</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="exterior1.png" alt="BMW Exterior">
+                <p class="feature-text">The BMW M4's headlights are more than just a source of illumination — they're a signature design statement. Crafted with precision, the slim laser light units feature BMW's Iconic Glow daytime running lights, radiating a distinctive presence both day and night. With BMW Laserlight technology, the high-beam range extends up to 600 meters, ensuring unmatched clarity and confidence at high speeds.</p>
+            </div>
+            <div class="feature-card">
+                <img src="exterior2.png" alt="BMW Exterior">
+                <p class="feature-text">The BMW M4 is equipped with high-performance tyres engineered for maximum grip and agility. Specially developed in collaboration with leading tyre manufacturers, these tyres ensure that every ounce of the M4's 510 horsepower is transferred to the road with confidence. The wider rear tyres deliver outstanding traction during acceleration, while the low-profile front tyres sharpen steering response.</p>
+            </div>
+            <div class="feature-card">
+                <img src="exterior3.png" alt="BMW Exterior">
+                <p class="feature-text">The BMW M4's rear lights are a masterpiece of modern design, combining cutting-edge technology with unmistakable BMW character. Featuring sleek 3D LED taillights, the backlights create a sharp, futuristic appearance that leaves a lasting impression both day and night. The distinctive L-shaped light signature emphasizes the wide stance of the M4.</p>
+            </div>
+            <div class="feature-card">
+                <img src="exterior4.png" alt="BMW Exterior">
+                <p class="feature-text">The BMW M4's fuel refilling system is designed with precision and driver convenience in mind. Featuring a capless refueling design, the system allows you to refuel quickly and cleanly without handling a traditional fuel cap. Simply open the fuel door, insert the nozzle, and you're ready to go — reducing spills and ensuring a secure seal every time.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="charging-section">
+        <h2 class="section-title">CHARGING TIMES FOR 100 KM RANGE</h2>
+        <p class="charging-content">With the BMW Intelligent Personal Assistant, your car becomes more than just a machine — it understands your voice commands and makes every drive effortless. The futuristic BMW Curved Display combines a 12.3" information panel with a 14.9" control display, delivering crystal-clear visuals and a driver-focused digital experience. For peace of mind, the BMW Driving Assistant Professional supports you with intelligent features like Active Cruise Control, Lane Keeping Assist, and real-time traffic adaptation, making long journeys more comfortable and secure. Meanwhile, BMW IconicSounds Electric, created in collaboration with Hans Zimmer, turns every acceleration into an emotional soundscape, ensuring that driving pleasure in your all-electric BMW is not only silent but also truly immersive.</p>
+        <div class="charging-grid">
+            <div class="charging-card">
+                <img src="https://bmw.scene7.com/is/image/BMW/charging-at-home-1?wid=585&hei=330" alt="Charging">
+            </div>
+            <div class="charging-card">
+                <img src="https://bmw.scene7.com/is/image/BMW/charging-on-move?wid=585&hei=330" alt="Charging">
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2 class="section-title">GALLERY</h2>
+        <div class="gallery-track">
+            <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/automotive-life/bmwapp-wallpaper/bawp-103-media-high.jpg?imwidth=1440" alt="BMW">
+            <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/automotive-life/bmwapp-wallpaper/bawp-100-media-high.jpg?imwidth=1440" alt="BMW">
+            <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/automotive-life/bmwapp-wallpaper/bawp-25-media-portrait.jpg?imwidth=1440" alt="BMW">
+            <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/automotive-life/bmwapp-wallpaper/bawp-43-media-hd.jpg?imwidth=1440" alt="BMW">
+            <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/automotive-life/bmwapp-wallpaper/bawp-64-media-high.jpg?imwidth=1440" alt="BMW">
+            <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/automotive-life/bmwapp-wallpaper/bawp-68-media-high.jpg?imwidth=1440" alt="BMW">
+            <img src="https://i.pinimg.com/1200x/58/87/ab/5887ab621a92579a70797f35dde5a0fd.jpg" alt="BMW">
+            <img src="https://i.pinimg.com/736x/6c/1c/17/6c1c17f153e19b61eb53455dfec83bb0.jpg" alt="BMW">
+            <img src="https://i.pinimg.com/736x/e4/d6/af/e4d6af51177cee60ea4f36a2c885a280.jpg" alt="BMW">
+            <img src="https://i.pinimg.com/736x/f7/9d/3c/f79d3cce3ec72f07123f2577ba1c265d.jpg" alt="BMW">
+            <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/automotive-life/bmwapp-wallpaper/bawp-103-media-high.jpg?imwidth=1440" alt="BMW">
+            <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/automotive-life/bmwapp-wallpaper/bawp-100-media-high.jpg?imwidth=1440" alt="BMW">
+            <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/automotive-life/bmwapp-wallpaper/bawp-25-media-portrait.jpg?imwidth=1440" alt="BMW">
+            <img src="https://www.bmw.com/content/dam/bmw/marketBMWCOM/bmw_com/categories/automotive-life/bmwapp-wallpaper/bawp-43-media-hd.jpg?imwidth=1440" alt="BMW">
+        </div>
+    </section>
+
+    <section class="quote-section">
+        <p class="quote">"BMW isn't just about driving — it's about feeling alive with every turn of the wheel."</p>
+    </section>
+</body>
+</html>
