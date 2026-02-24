@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mercedes-Benz | Luxury Electric Performance</title>
+    <style>
+        /* ============================================
+           MODERN RESPONSIVE MERCEDES DESIGN
+           Silver/Blue Elegant Theme
+           Mobile-First Approach
+        ============================================ */
+
+        /* CSS Reset & Base Styles */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color Palette */
+            --silver: #C0C0C0;
+            --blue-accent: #1E90FF;
+            --dark-bg: #0a0a0a;
+            --dark-card: #1a1a1a;
+            --dark-elevated: #252525;
+            --text-primary: #e8e8e8;
+            --text-secondary: #b8b8b8;
+
+            /* Spacing Scale */
+            --space-xs: clamp(0.5rem, 2vw, 0.75rem);
+            --space-sm: clamp(0.75rem, 2.5vw, 1rem);
+            --space-md: clamp(1rem, 3vw, 1.5rem);
+            --space-lg: clamp(1.5rem, 4vw, 2.5rem);
+            --space-xl: clamp(2rem, 5vw, 4rem);
+            --space-2xl: clamp(3rem, 8vw, 6rem);
+
+            /* Typography Scale */
+            --text-xs: clamp(0.75rem, 2vw, 0.875rem);
+            --text-sm: clamp(0.875rem, 2.5vw, 1rem);
+            --text-base: clamp(1rem, 3vw, 1.125rem);
+            --text-lg: clamp(1.125rem, 3.5vw, 1.5rem);
+            --text-xl: clamp(1.5rem, 4vw, 2rem);
+            --text-2xl: clamp(2rem, 5vw, 3rem);
+            --text-3xl: clamp(2.5rem, 6vw, 4rem);
+            --text-4xl: clamp(3rem, 8vw, 5.5rem);
+
+            /* Layout */
+            --max-width: 1400px;
+            --section-padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 5vw, 2rem);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Fixed Video Background */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            filter: brightness(0.6);
+        }
+
+        /* Fixed Navigation */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(192, 192, 192, 0.1);
+        }
+
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--space-sm) var(--space-md);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .nav-logo {
+            width: clamp(40px, 8vw, 60px);
+            height: auto;
+            filter: brightness(1.2);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: clamp(0.5rem, 3vw, 2rem);
+            align-items: center;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: var(--silver);
+            font-size: var(--text-sm);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+            padding: 0.5rem;
+        }
+
+        .nav-menu li a:hover {
+            color: var(--blue-accent);
+        }
+
+        .nav-menu li a[href*="mercedes"] {
+            color: var(--blue-accent);
+            border-bottom: 2px solid var(--blue-accent);
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--silver);
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: var(--section-padding);
+            padding-top: calc(60px + var(--space-2xl));
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: var(--text-4xl);
+            font-weight: 800;
+            color: var(--silver);
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8);
+            letter-spacing: 0.05em;
+            margin-bottom: var(--space-md);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content {
+            font-size: var(--text-lg);
+            color: var(--text-secondary);
+            max-width: 900px;
+            line-height: 1.8;
+            letter-spacing: 0.02em;
+            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.9);
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Content Container */
+        .main-content {
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(to bottom, transparent, var(--dark-bg) 20%);
+        }
+
+        /* Section Wrapper */
+        .section {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--section-padding);
+        }
+
+        .section-title {
+            font-size: var(--text-3xl);
+            color: var(--silver);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: var(--space-xl);
+            text-align: center;
+            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
+        }
+
+        /* CTA Cards Grid */
+        .cta-section {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .cta-title {
+            font-size: var(--text-2xl);
+            color: var(--silver);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            margin-bottom: var(--space-lg);
+        }
+
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        .cta-card {
+            background: var(--dark-card);
+            border: 2px solid rgba(192, 192, 192, 0.2);
+            border-radius: 12px;
+            padding: var(--space-lg);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--silver);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .cta-card:hover {
+            background: var(--dark-elevated);
+            border-color: var(--blue-accent);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(30, 144, 255, 0.2);
+        }
+
+        /* Video Ad Section */
+        .video-ad {
+            position: relative;
+            width: 100%;
+            max-width: var(--max-width);
+            margin: var(--space-2xl) auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-ad video {
+            width: 100%;
+            height: clamp(300px, 60vh, 600px);
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: clamp(1.5rem, 4vw, 2.5rem);
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color:  #C0C0C0;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-align: center;
+        }
+
+        /* Feature Grid (Interior/Exterior) */
+        .feature-grid {
+            display: grid;
+            gap: var(--space-2xl);
+        }
+
+        .feature-item {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+            background: var(--dark-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(192, 192, 192, 0.1);
+        }
+
+        .feature-item:nth-child(even) .feature-image {
+            order: 2;
+        }
+
+        .feature-image {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .feature-item:hover .feature-image img {
+            transform: scale(1.05);
+        }
+
+        .feature-text {
+            padding: var(--space-lg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .feature-text p {
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: var(--section-padding);
+            background: var(--dark-bg);
+            overflow: hidden;
+        }
+
+        .gallery-title {
+            font-size: var(--text-3xl);
+            color: var(--silver);
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            margin-bottom: var(--space-xl);
+            text-align: center;
+        }
+
+        .gallery-wrapper {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 16px;
+            padding: var(--space-md) 0;
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: var(--space-md);
+            animation: scroll 40s linear infinite;
+            width: fit-content;
+        }
+
+        .gallery-track:hover {
+            animation-play-state: paused;
+        }
+
+        .gallery-track img {
+            height: clamp(200px, 40vw, 400px);
+            width: auto;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-track img:hover {
+            transform: scale(1.05);
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-50%));
+            }
+        }
+
+        /* Charging Section */
+        .charging-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .charging-card {
+            background: var(--dark-card);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(192, 192, 192, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .charging-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--blue-accent);
+        }
+
+        .charging-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .charging-card-content {
+            padding: var(--space-lg);
+            font-size: var(--text-base);
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            text-align: center;
+            padding: var(--space-2xl) var(--space-md);
+            margin: var(--space-2xl) 0;
+        }
+
+        .quote-text {
+            font-size: var(--text-xl);
+            color: var(--silver);
+            font-style: italic;
+            font-weight: 600;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.6;
+            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Tablet Breakpoint */
+        @media (min-width: 768px) {
+            .feature-item {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .feature-image {
+                min-height: 400px;
+            }
+
+            .nav-menu {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: none;
+            }
+        }
+
+        /* Mobile Menu Styles */
+        @media (max-width: 767px) {
+            .nav-menu {
+                position: fixed;
+                top: 60px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 60px);
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: var(--space-xl) 0;
+                transition: left 0.3s ease;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-menu li a {
+                display: block;
+                padding: var(--space-md);
+                font-size: var(--text-lg);
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .feature-item:nth-child(even) .feature-image {
+                order: 1;
+            }
+
+            .gallery-track img {
+                height: 150px;
+            }
+        }
+
+        /* Desktop Large */
+        @media (min-width: 1200px) {
+            .cta-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Focus Styles for Accessibility */
+        *:focus-visible {
+            outline: 2px solid var(--blue-accent);
+            outline-offset: 2px;
+        }
+
+        /* Loading Optimization */
+        img {
+            content-visibility: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Fixed Background Video -->
+    <div class="background">
+        <video src="Mercedes AMG GT.mp4" autoplay muted loop playsinline></video>
+    </div>
+
+    <!-- Fixed Navigation -->
+    <nav class="top-nav">
+        <div class="nav-container">
+            <img src="https://assets.oneweb.mercedes-benz.com/plugin/hp-assets/latest/images/brands/mercedes-benz/logo.svg"
+                alt="Mercedes-Benz Logo" class="nav-logo">
+
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">BMW</a></li>
+                <li><a href="ferrari.html">FERRARI</a></li>
+                <li><a href="bugatti.html">BUGATTI</a></li>
+                <li><a href="mclaren.html">MCLAREN</a></li>
+                <li><a href="mercedes.html">MERCEDES</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 class="hero-title">MERCEDES-BENZ</h1>
+        <p class="hero-content">
+            The Mercedes-Benz EQE is designed for those who seek elegance with innovation. It's a harmony of futuristic
+            design and advanced engineering, delivering performance that feels effortless on every journey. With up to
+            402 horsepower and a dynamic electric drive, the EQE glides from 0 to 100 km/h in just 4.9 seconds. It's
+            efficiency and power, reimagined for the future of driving. Step inside and discover true modern luxury. The
+            MBUX Hyperscreen and intelligent digital cockpit bring every function closer than ever, blending comfort
+            with state-of-the-art technology. Every detail reflects Mercedes' vision of redefining the driving
+            experience.
+        </p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- CTA Section -->
+        <section class="section cta-section">
+            <h2 class="cta-title">STEP INTO YOUR MERCEDES</h2>
+            <div class="cta-grid">
+                <div class="cta-card" id="allModels">All Models</div>
+                <div class="cta-card" id="testDrive">Book your test drive</div>
+                <div class="cta-card" id="designConcept">Design & Concept</div>
+            </div>
+        </section>
+
+        <!-- Video Ad -->
+        <div class="video-ad">
+            <video src="MERCEDES AD.mp4" autoplay muted loop playsinline></video>
+            <div class="video-overlay">
+                Mercedes — where innovation meets elegance, and every drive defines perfection.
+            </div>
+        </div>
+
+        <!-- Interior Design Section -->
+        <section class="section">
+            <h2 class="section-title">INTERIOR DESIGN HIGHLIGHTS</h2>
+            <div class="feature-grid">
+                <article class="feature-item">
+                    <div class="feature-image">
+                        <img src="https://as1.ftcdn.net/v2/jpg/03/73/75/58/1000_F_373755804_xkLMUSnOXVvhQVh6JMFfazLGLwYPcOVP.jpg"
+                            alt="Mercedes Interior - Steering Wheel" loading="lazy">
+                    </div>
+                    <div class="feature-text">
+                        <p>The steering of a Mercedes is crafted to deliver effortless precision and supreme
+                            comfort. Every turn is smooth, responsive, and engineered to create a perfect balance between control and ease.
+                            Advanced technology enhances handling, ensuring stability on highways and agility through city streets.
+                            Wrapped in premium materials and designed with meticulous detail, the steering isn't just a tool of control —
+                            it's a symbol of elegance and confidence. In a Mercedes, every movement of the wheel connects driver and machine
+                            in seamless harmony.</p>
+                    </div>
+                </article>
+
+                <article class="feature-item">
+                    <div class="feature-image">
+                        <img src="https://as1.ftcdn.net/v2/jpg/03/09/89/52/1000_F_309895284_qFlgCSlIo6B3NneQ1yqLDEOtBUtU2Bcj.jpg"
+                            alt="Mercedes Interior - Dashboard" loading="lazy">
+                    </div>
+                    <div class="feature-text">
+                        <p>Step into the front interior of a Mercedes, and you're welcomed by a world of refined
+                            innovation and comfort. The steering wheel blends precision with luxury, offering smooth control wrapped in
+                            premium materials. Sleek air-conditioning vents not only cool the cabin but also add to the car's sophisticated
+                            design language. At the center, a high-definition display screen becomes the digital heart of the interior,
+                            bringing navigation, entertainment, and driving information to life with clarity and ease. Just below, the gear selector sits in
+                            perfect harmony with the design — engineered for seamless shifts and effortless command.</p>
+                    </div>
+                </article>
+
+                <article class="feature-item">
+                    <div class="feature-image">
+                        <img src="https://as1.ftcdn.net/v2/jpg/03/15/41/04/1000_F_315410419_MTFvgPbByaTVbtC7MNfuaZPmzUxSx9R9.jpg"
+                            alt="Mercedes Interior - Backseats" loading="lazy">
+                    </div>
+                    <div class="feature-text">
+                        <p>The backseats of a Mercedes are designed as a sanctuary of comfort and elegance.
+                            Spacious and ergonomically contoured, they provide generous legroom and support for long journeys. Premium
+                            upholstery, soft cushioning, and refined stitching elevate the experience, blending luxury with relaxation.
+                            Advanced climate control, ambient lighting, and thoughtful detailing ensure that every passenger enjoys the same
+                            level of sophistication as the driver. In a Mercedes, the backseats aren't just seats — they're a statement of
+                            comfort, crafted for those who appreciate the finer side of travel.</p>
+                    </div>
+                </article>
+
+                <article class="feature-item">
+                    <div class="feature-image">
+                        <img src="https://as2.ftcdn.net/v2/jpg/03/34/13/77/1000_F_334137704_zKb3af1egXyIbPBlCBkGJwtSeVolFcN5.jpg"
+                            alt="Mercedes Interior - Gearbox" loading="lazy">
+                    </div>
+                    <div class="feature-text">
+                        <p>The gearbox of a Mercedes is a masterpiece of engineering, built to deliver seamless
+                            transitions and effortless power. Each shift is smooth, precise, and optimized to match the driver's intent —
+                            whether it's cruising in comfort or accelerating with authority. With advanced automatic technology and
+                            intelligent driving modes, the gearbox adapts instantly to road conditions and driving style. It ensures that
+                            performance and efficiency are always in perfect balance, making every journey refined, responsive, and
+                            unforgettable.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Exterior Design Section -->
+        <section class="section">
+            <h2 class="section-title">EXTERIOR DESIGN HIGHLIGHTS</h2>
+            <div class="feature-grid">
+                <article class="feature-item">
+                    <div class="feature-image">
+                        <img src="https://images.pexels.com/photos/2611707/pexels-photo-2611707.jpeg"
+                            alt="Mercedes Exterior - Tyres" loading="lazy">
+                    </div>
+                    <div class="feature-text">
+                        <p>The tyres of a Mercedes are engineered to deliver stability, grip, and confidence in
+                            every drive. Built with advanced compounds and precision tread design, they ensure maximum traction on highways,
+                            sharp corners, and city streets alike. Designed to complement the car's dynamic performance, the tyres balance comfort with control — reducing road
+                            noise while enhancing handling. In a Mercedes, every rotation of the tyres transforms power into a smooth,
+                            secure, and commanding ride. With innovative run-flat technology and reinforced sidewalls, these tyres offer added safety and durability,
+                            allowing drivers to maintain control even in challenging conditions.</p>
+                    </div>
+                </article>
+
+                <article class="feature-item">
+                    <div class="feature-image">
+                        <img src="https://images.pexels.com/photos/10907368/pexels-photo-10907368.jpeg"
+                            alt="Mercedes Exterior - Headlights" loading="lazy">
+                    </div>
+                    <div class="feature-text">
+                        <p>The front headlights of a Mercedes are a fusion of design and technology, crafted to
+                            illuminate the road with unmatched clarity and style. Featuring advanced LED and intelligent lighting systems,
+                            they adapt seamlessly to speed, weather, and traffic conditions, ensuring safety without compromise.
+                            Their sleek, sculpted design enhances the car's commanding presence, making the headlights not just functional
+                            but a signature element of Mercedes elegance. By day or night, they project brilliance that defines both vision
+                            and identity.</p>
+                    </div>
+                </article>
+
+                <article class="feature-item">
+                    <div class="feature-image">
+                        <img src="https://www.mercedes-benz.co.in/content/dam/hq/passengercars/cars/eqa/eqa-saloon-h243-fl-pi/overview/exterior/08-2023/images/mercedes-benz-eqa-h243-exterior-highlights-hotspot-taillight-sidewall-1612x1209-08-2023.jpg/1740018778392.jpg?im=Crop,rect=(0,0,1612,1209);Resize=(1023,767)"
+                            alt="Mercedes Exterior - Backlights" loading="lazy">
+                    </div>
+                    <div class="feature-text">
+                        <p>The backlights of a Mercedes are designed to blend safety, style, and sophistication.
+                            With cutting-edge LED technology, they provide sharp visibility and instant response, ensuring clarity for every
+                            driver on the road. They don't just light the road behind — they define the elegance of departure.
+                            Their sleek, modern design complements the car's flowing lines, creating a distinctive rear profile that is
+                            instantly recognizable. More than just illumination, Mercedes backlights are a statement of elegance and
+                            innovation — a signature glow that leaves a lasting impression long after the car has passed.</p>
+                    </div>
+                </article>
+
+                <article class="feature-item">
+                    <div class="feature-image">
+                        <img src="https://www.mercedes-benz.co.in/content/dam/hq/passengercars/cars/eqa/eqa-saloon-h243-fl-pi/overview/exterior/08-2023/images/mercedes-benz-eqa-h243-exterior-highlights-hotspot-radiator-grille-1612x1209-08-2023.jpg/1740018717811.jpg?im=Crop,rect=(0,0,1612,1209);Resize=(1023,767)"
+                            alt="Mercedes Exterior - Grille" loading="lazy">
+                    </div>
+                    <div class="feature-text">
+                        <p>The Black Panel Grille with the Mercedes-Benz pattern is a perfect blend of
+                            innovation and style. Featuring a high-gloss black finish as part of the Electric Art line, it adds a striking,
+                            contemporary edge to the vehicle's front profile. The meticulously crafted Mercedes-Benz emblem pattern enhances depth and sophistication, ensuring the grille
+                            stands out while maintaining the brand's iconic elegance. Every line and contour of the grille conveys
+                            confidence, making a bold statement of performance and luxury. Designed not just for aesthetics, it complements airflow and efficiency, marrying beauty with function in true
+                            Mercedes-Benz fashion. This grille isn't merely a front-end feature — it's the signature of modern automotive
+                            excellence.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section class="gallery-section">
+            <h2 class="gallery-title">GALLERY</h2>
+            <div class="gallery-wrapper">
+                <div class="gallery-track" id="galleryTrack">
+                    <img src="https://i.pinimg.com/736x/90/27/f1/9027f16a4436321a83493914b6c88088.jpg" alt="Mercedes image 1" loading="lazy">
+                    <img src="https://i.pinimg.com/736x/4a/fe/b7/4afeb78d9c5c80ed07ae35f54ed813b8.jpg" alt="Mercedes image 2" loading="lazy">
+                    <img src="https://i.pinimg.com/736x/05/65/ad/0565ad86e1360dc8100fa31efb69bd99.jpg" alt="Mercedes image 3" loading="lazy">
+                    <img src="https://i.pinimg.com/736x/c3/f5/92/c3f592605e09fd9ec5057469b797889b.jpg" alt="Mercedes image 4" loading="lazy">
+                    <img src="https://i.pinimg.com/1200x/da/13/38/da13382e0b7ba763e607194f88752af5.jpg" alt="Mercedes image 5" loading="lazy">
+                    <img src="https://i.pinimg.com/1200x/8e/00/a2/8e00a21ec35d48c903f91e389f84ee05.jpg" alt="Mercedes image 6" loading="lazy">
+                    <img src="https://i.pinimg.com/736x/72/65/b3/7265b3338a0848f9bc6a1fe1ed0ff0bc.jpg" alt="Mercedes image 7" loading="lazy">
+                    <img src="https://i.pinimg.com/1200x/45/ce/03/45ce037610028f1a8f738ca00b5101c4.jpg" alt="Mercedes image 8" loading="lazy">
+                    <img src="https://i.pinimg.com/736x/d8/78/25/d878252e53ab5d2ddbd676b6fcbed959.jpg" alt="Mercedes image 9" loading="lazy">
+                    <img src="https://i.pinimg.com/736x/35/40/5c/35405c929af42b433d8cf801b04492ed.jpg" alt="Mercedes image 10" loading="lazy">
+                    <!-- Duplicates for seamless loop -->
+                    <img src="https://i.pinimg.com/736x/90/27/f1/9027f16a4436321a83493914b6c88088.jpg" alt="Mercedes image 1" loading="lazy">
+                    <img src="https://i.pinimg.com/736x/4a/fe/b7/4afeb78d9c5c80ed07ae35f54ed813b8.jpg" alt="Mercedes image 2" loading="lazy">
+                    <img src="https://i.pinimg.com/736x/05/65/ad/0565ad86e1360dc8100fa31efb69bd99.jpg" alt="Mercedes image 3" loading="lazy">
+                    <img src="https://i.pinimg.com/736x/c3/f5/92/c3f592605e09fd9ec5057469b797889b.jpg" alt="Mercedes image 4" loading="lazy">
+                    <img src="https://i.pinimg.com/1200x/da/13/38/da13382e0b7ba763e607214f88752af5.jpg" alt="Mercedes image 5" loading="lazy">
+                    <img src="https://i.pinimg.com/1200x/8e/00/a2/8e00a21ec35d48c903f91e389f84ee05.jpg" alt="Mercedes image 6" loading="lazy">
+                    <img src="https://i.pinimg.com/736x/72/65/b3/7265b3338a0848f9bc6a1fe1ed0ff0bc.jpg" alt="Mercedes image 7" loading="lazy">
+                    <img src="https://i.pinimg.com/1200x/45/ce/03/45ce037610028f1a8f738ca00b5101c4.jpg" alt="Mercedes image 8" loading="lazy">
+                    <img src="https://i.pinimg.com/736x/d8/78/25/d878252e53ab5d2ddbd676b6fcbed959.jpg" alt="Mercedes image 9" loading="lazy">
+                    <img src="https://i.pinimg.com/736x/35/40/5c/35405c929af42b433d8cf801b04492ed.jpg" alt="Mercedes image 10" loading="lazy">
+                </div>
+            </div>
+        </section>
+
+        <!-- Charging Solutions -->
+        <section class="section">
+            <h2 class="section-title">Mercedes-Benz Charging Solutions</h2>
+            <div class="charging-grid">
+                <article class="charging-card">
+                    <img src="https://www.mercedes-benz.co.in/content/dam/retail/india/evfichbanner_charging_oneweb.jpg/1744802332715.jpg?im=Crop,rect=(476,177,3337,1482);Resize=(2730,1212)"
+                        alt="FICH App Charging" loading="lazy">
+                    <div class="charging-card-content">
+                        The FICH App enhances your EV journey with seamless access to 1000+ charging stations.
+                        Enjoy exclusive benefits for Mercedes-Benz users with postpaid services and smart routing feature. Wherever you
+                        go, the app ensures a charging station is always within reach—reducing range anxiety and keeping you powered on
+                        the road. Experience effortless charging and intelligent connectivity – the FICH App seamlessly supports your
+                        Mercedes-Benz electric vehicle with access to a growing network of charging stations.
+                    </div>
+                </article>
+
+                <article class="charging-card">
+                    <img src="https://www.mercedes-benz.co.in/content/dam/hq/passengercars/technology-innovation/mercedes-benz-wallbox-ecostrom.jpg/1744721123489.jpg?im=Crop,rect=(211,805,6626,2942);Resize=(2730,1212)"
+                        alt="Mercedes Wallbox" loading="lazy">
+                    <div class="charging-card-content">
+                        Simple, quick and convenient charging at home with the Mercedes-Benz WallBox. Charge
+                        your electric vehicle easily at home with the Mercedes-Benz Wallbox. This means that charging is not only
+                        quicker and more convenient, but also safer than using a household socket. With the Mercedes me App, you can
+                        control your Wallbox from anywhere, check on your charging history and the current charge level and even unlock
+                        your Wallbox for charging by authenticating via the app with just one click.
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="quote-section">
+            <blockquote class="quote-text">
+                "Mercedes-Benz — A legacy of timeless luxury, crafted with innovation, precision, and elegance to
+                redefine every journey."
+            </blockquote>
+        </section>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Close menu on link click (mobile)
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // CTA Button Handlers
+        document.getElementById('allModels').addEventListener('click', () => {
+            window.location.href = 'https://www.mercedes-benz.co.in/passengercars/models.html?group=all&subgroup=see-all&filters=';
+        });
+
+        document.getElementById('testDrive').addEventListener('click', () => {
+            window.location.href = 'https://www.mercedes-benz.co.in/passengercars/test-drive.html?group=all&subgroup=see-all&view=BODYTYPE&filters=';
+        });
+
+        document.getElementById('designConcept').addEventListener('click', () => {
+            window.location.href = 'https://www.mercedes-benz.co.in/passengercars/technology/design-and-concept-cars.html';
+        });
+    </script>
+</body>
+
+</html>

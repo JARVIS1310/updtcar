@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferrari LaFerrari - Italian Excellence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            overflow-x: hidden;
+            background: #0a0000;
+            color: #fff;
+        }
+
+        .background video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.35;
+        }
+
+        .top-nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(180deg,rgba(0, 0, 0, 0.8));
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+            filter: drop-shadow(0 0 10px rgba(220, 20, 60, 0.5));
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-menu a:hover {
+            color: #dc143c;
+            text-shadow: 0 0 10px rgba(220, 20, 60, 0.8);
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 8rem 5% 4rem;
+           
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 9vw, 7rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #bc6363da);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter:contrast(1.5) brightness(1.1);   
+            filter: blur(1.2);
+            text-shadow: #953a3a 1px 1px 1px;
+            margin-bottom: 2rem;
+
+            animation: fadeInSlide 1s ease-out;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            line-height: 1.9;
+            color: #f0f0f0;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.9);
+            animation: fadeInSlide 1.3s ease-out;
+            border-left: 4px solid #dc143c;
+            padding-left: 2rem;
+        }
+
+        .cta-section {
+            padding: 5rem 5%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-family: 'Bebas Neue', sans-serif;
+            margin-bottom: 3rem;
+            letter-spacing: 3px;
+            text-align: center;
+            color: #dc143c;
+            text-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
+        }
+
+        .cta-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cta-btn {
+            padding: 2.5rem 2rem;
+            background: linear-gradient(135deg, #8b0000, #dc143c);
+            border: 2px solid transparent;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: #fff;
+            box-shadow: 0 15px 40px rgba(220, 20, 60, 0.6);
+        }
+
+        .video-section {
+            padding: 5rem 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .video-overlay {
+            text-align: center;
+            padding: 1.5rem;
+            font-size: clamp(1.3rem, 3vw, 2.2rem);
+            font-weight: bolder;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 4px;
+            color: #dc143c;
+            text-shadow: 0 0 20px rgba(220, 20, 60, 0.7);
+        }
+
+        .video-container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            border-radius: 25px;
+            box-shadow: 0 20px 80px rgba(220, 20, 60, 0.4);
+            border: 3px solid rgba(220, 20, 60, 0.3);
+        }
+        .features-section {
+            padding: 6rem 5%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-family: 'Bebas Neue', sans-serif;
+            margin-bottom: 4rem;
+            letter-spacing: 2px;
+            text-align: center;
+            color: #dc143c;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(28, 105, 212, 0.5);
+            box-shadow: 0 15px 40px rgba(28, 105, 212, 0.2);
+        }
+
+        .feature-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #d0d0d0;
+        }
+
+        .brand-section {
+            padding: 6rem 5%;
+            background: rgba(139, 0, 0, 0.2);
+        }
+
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .brand-card {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(139, 0, 0, 0.3));
+            border: 2px solid rgba(220, 20, 60, 0.3);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .brand-card:hover {
+            transform: scale(1.05);
+            border-color: #dc143c;
+            box-shadow: 0 15px 40px rgba(220, 20, 60, 0.3);
+        }
+
+        .brand-card i {
+            font-style: italic;
+            font-weight: 700;
+            color: #dc143c;
+            font-size: 1.3rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .brand-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #d0d0d0;
+        }
+
+        .gallery-section {
+            padding: 6rem 5%;
+            background: rgba(0, 0, 0, 0.9);
+            overflow: hidden;
+        }
+
+        .gallery-track {
+            display: flex;
+            gap: 25px;
+            animation: scrollFerrari 10s linear infinite;
+        }
+
+        .gallery-track img {
+            height: 450px;
+            width: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(220, 20, 60, 0.3);
+            border: 2px solid rgba(220, 20, 60, 0.2);
+        }
+
+        @keyframes scrollFerrari {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .quote-section {
+            padding: 6rem 5%;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.95) 100%);
+        }
+
+        .quote {
+            font-size: clamp(1.5rem, 3vw, 2.8rem);
+            font-family: 'Bebas Neue', sans-serif;
+            font-style: italic;
+            max-width: 1000px;
+            margin: 0 auto;
+            line-height: 1.5;
+            color: #dc143c;
+            text-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
+        }
+
+        @keyframes fadeInSlide {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem 5%;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+                font-size: 0.8rem;
+            }
+
+            .logo-img {
+                height: 35px;
+            }
+
+            .hero-section {
+                padding: 6rem 5% 3rem;
+            }
+
+            .hero-content {
+                border-left-width: 3px;
+                padding-left: 1rem;
+            }
+
+            .cta-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brand-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-track img {
+                height: 280px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <video src="Ferrari LaFerrari.mp4" autoplay muted loop playsinline></video>
+    </div>
+
+    <nav class="top-nav">
+        <img src="https://di-uploads-pod15.dealerinspire.com/lakeforestsportscars/uploads/2021/06/Ferrari-Logo.png" alt="Ferrari Logo" class="logo-img">
+        <ul class="nav-menu">
+            <li><a href="index.html">BMW</a></li>
+            <li><a href="ferrari.html">FERRARI</a></li>
+            <li><a href="bugatti.html">BUGATTI</a></li>
+            <li><a href="mclaren.html">MCLAREN</a></li>
+            <li><a href="mercedes.html">MERCEDES</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-section">
+        <h1 class="hero-title">Ferrari LaFerrari</h1>
+        <div class="hero-content">
+            <p>The Ferrari LaFerrari is crafted for those who seek the ultimate driving experience. It's Italian artistry fused with extreme performance, delivering emotions that ignite every time you press the throttle. With 950 horsepower from its hybrid V12 engine, the LaFerrari sprints from 0 to 100 km/h in under 3 seconds. It's a masterpiece born in Formula 1, tuned for the open road. Slide into the cockpit and feel innovation at its core. The driver-focused digital cluster and advanced hybrid system surround you with precision, blending exclusivity with state-of-the-art technology.</p>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <h2 class="cta-title">EXPLORE YOUR FERRARI</h2>
+        <div class="cta-buttons">
+            <div class="cta-btn" onclick="window.location.href='https://www.ferrari.com/en-IN/formula1'">
+                Racing Tour
+            </div>
+            <div class="cta-btn" onclick="window.location.href='https://www.ferrari.com/en-EN/auto/849-testarossa'">
+                Sports Car
+            </div>
+            <div class="cta-btn" onclick="window.location.href='https://www.ferrari.com/en-IN/corse-clienti'">
+                Experience
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <div class="video-overlay">Ferrari LaFerrari — Where Pure Italian Passion Meets 950 Hybrid Horses of Perfection</div>
+        <div class="video-container">
+            <video src="ferrari laferrari ad.mp4" autoplay muted loop playsinline></video>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <h2 class="section-title">INTERIOR DESIGN HIGHLIGHTS</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="https://i.pinimg.com/1200x/7f/e1/6a/7fe16a428494e31bfd42af2593067f27.jpg" alt="Ferrari Interior">
+                <p class="feature-text">The Ferrari cockpit reimagines control and elegance with a steering wheel inspired by Formula 1 precision. Wrapped in fine Alcantara with carbon-fiber accents, it integrates vital controls for seamless access at your fingertips. The gear selector area, sculpted with minimalist Italian design, showcases sleek aluminum finishes and intuitive paddle shifters. Together, they create a driver-centric environment that blends cutting-edge performance with timeless craftsmanship, making every drive a commanding and immersive experience.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://ferrari.scene7.com/is/image/ferrari/adba1745-bb13-4c97-acff-35cb7acbe28b?fmt=avif-alpha&hei=640&fit=constrain" alt="Ferrari Interior">
+                <p class="feature-text">The Ferrari digital interface beside the driver seamlessly integrates performance data with infotainment controls, delivering a cockpit built for precision and elegance. The sleek touchscreen, framed in carbon fiber, offers instant access to navigation, media, and hybrid power management. With intuitive haptic feedback and customizable layouts, drivers can tailor the display to their exact preferences. Paired with steering-mounted controls, it transforms every moment behind the wheel into a balance of cutting-edge technology and pure driving emotion.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://di-uploads-pod15.dealerinspire.com/lakeforestsportscars/uploads/2020/06/Ferrari-Roma-Passenger-Display.png" alt="Ferrari Interior">
+                <p class="feature-text">The digital touchscreen in the Ferrari Roma is designed to enhance every journey, merging advanced technology with Italian elegance. Positioned within easy reach, it provides intuitive control over cabin temperature, navigation, and music, ensuring seamless interaction for the driver. The high-resolution display responds instantly to every touch, with crisp graphics that elevate the driving experience. Customizable menus allow effortless personalization, while the sleek interface blends harmoniously with the Roma's luxurious interior.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://i.pinimg.com/1200x/e3/9d/74/e39d7420794019a3d85a78b367c66c4c.jpg" alt="Ferrari Interior">
+                <p class="feature-text">The seats of this Ferrari are crafted to combine luxurious comfort with dynamic support, ensuring every journey feels effortless. Wrapped in the finest leather and Alcantara, they deliver a supple touch while maintaining durability for long drives. Ergonomically contoured cushions adapt to the body's natural posture, reducing fatigue even on extended trips. With adjustable lumbar support and premium finishes, passengers can personalize their seating experience. Enhanced bolstering keeps occupants secure during spirited driving.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <h2 class="section-title">EXTERIOR DESIGN HIGHLIGHTS</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/2027-ferrari-849-testarossa-113-68c05479ec927.jpg?crop=1xw:1xh;center,top" alt="Ferrari Exterior">
+                <p class="feature-text">The Ferrari's rear-mounted nitro power boosters are more than just performance enhancers — they're a statement of raw racing DNA. Engineered with precision, these compact yet powerful units unleash instantaneous thrust, delivering explosive acceleration when engaged. With advanced hybrid integration, the nitro system provides seamless bursts of power that push the limits of speed and agility. Intelligent control software automatically balances boost delivery, ensuring stability through sharp corners while maximizing straight-line performance.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/2027-ferrari-849-testarossa-123-68c054863ea3d.jpg?crop=1xw:1xh;center,top" alt="Ferrari Exterior">
+                <p class="feature-text">The Ferrari is fitted with ultra-high-performance tyres designed to harness its immense power with absolute precision. Developed in partnership with top tyre specialists, these tyres guarantee maximum grip and stability, ensuring every burst of acceleration is met with complete control. The wider rear tyres channel the car's extraordinary horsepower to the asphalt, while the finely tuned front tyres deliver razor-sharp steering response, even during aggressive cornering at high speeds. Mounted on lightweight forged alloy wheels, the tyres embody both Italian craftsmanship and racing-inspired performance.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/2027-ferrari-849-testarossa-125-68c05486d874d.jpg?crop=1xw:1xh;center,top" alt="Ferrari Exterior">
+                <p class="feature-text">The Ferrari's fuel tank is a triumph of engineering, blending advanced materials with precision design to optimize performance. Crafted to be lightweight yet durable, it ensures the perfect balance between efficiency and driving dynamics, supporting the immense power of the V12 engine. The aerodynamic placement of the tank contributes to the car's low center of gravity, enhancing stability at extreme speeds. With quick-refill technology and advanced safety features, Ferrari's fuel system is not just functional — it's a seamless integration of innovation and racing heritage.</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/2027-ferrari-849-testarossa-111-68c054d6f23c4.jpg?crop=1xw:1xh;center,top" alt="Ferrari Exterior">
+                <p class="feature-text">The Ferrari's rear lights are designed with a perfect blend of elegance and performance in mind. Featuring a distinctive circular LED design, the backlights create an instantly recognizable signature that reflects Ferrari's iconic heritage. Sleek and sculpted, they illuminate with striking clarity, ensuring maximum visibility while adding to the car's aerodynamic flow. Intelligent lighting technology adapts seamlessly to driving conditions, enhancing both safety and style on every journey. With their bold glow and refined detailing, Ferrari's backlights turn functionality into a true expression of Italian artistry.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="brand-section">
+        <h2 class="section-title">What is Ferrari's Formula for its Unique Brand Appeal?</h2>
+        <div class="brand-grid">
+            <div class="brand-card">
+                <i>BRAND POSITIONING</i>
+                <p class="brand-text">Ferrari has positioned itself as more than just a sports car manufacturer—a symbol of aspirational living. The brand is closely associated with its Formula 1 team, leveraging the glamor and competitiveness of motorsports. The iconic Ferrari logo and the distinctive Ferrari red colour further enhance its appeal.</p>
+            </div>
+            <div class="brand-card">
+                <i>CUSTOMIZATION</i>
+                <p class="brand-text">Ferrari emphasizes customization, allowing customers to create bespoke vehicles. The personalization adds to the brand's allure, making each Ferrari car a unique expression of its owner's taste and status. The exclusive service allows clients to handpick every element of their vehicle and plays a crucial role.</p>
+            </div>
+            <div class="brand-card">
+                <i>CUSTOMER EXPERIENCE</i>
+                <p class="brand-text">Ferrari focuses on customer experience. This includes personalized services and ensuring customer satisfaction at every touchpoint, from purchase to after-sales support. After-sales services are meticulously designed to maintain the vehicle's performance and the owner's delight, embodying Ferrari's dedication to perfection.</p>
+            </div>
+            <div class="brand-card">
+                <i>DISTRIBUTION</i>
+                <p class="brand-text">Ferrari adopts a selective distribution strategy, making its luxury cars available through authorized dealerships. Ferrari sells its vehicles through a selective network of authorized dealerships worldwide, ensuring exceptional customer service and embodies the brand's luxury ethos. Ferrari sold approximately 9,000 units in one year.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2 class="section-title">GALLERY</h2>
+        <div class="gallery-track">
+            <img src="https://i.pinimg.com/736x/ec/08/1d/ec081db641a3c06b8e52ef33d958c812.jpg" alt="Ferrari">
+            <img src="https://i.pinimg.com/736x/19/34/8b/19348bb03423c9cb36d83910fd5d3770.jpg" alt="Ferrari">
+            <img src="https://i.pinimg.com/736x/23/dc/3d/23dc3db4f9cffb9ced962145bbffb085.jpg" alt="Ferrari">
+            <img src="https://i.pinimg.com/736x/ff/c1/b7/ffc1b71c5cd7d6e286585b4543034102.jpg" alt="Ferrari">
+            <img src="https://i.pinimg.com/1200x/d0/2a/a9/d02aa9c66a2f60229aa3eef3b58a58b4.jpg" alt="Ferrari">
+            <img src="https://i.pinimg.com/736x/eb/d2/8f/ebd28f98ac9830456924192b34fcdb00.jpg" alt="Ferrari">
+            <img src="https://i.pinimg.com/736x/03/87/69/038769c6f99035ec7e5976851c086b91.jpg" alt="Ferrari">
+            <img src="https://i.pinimg.com/736x/0e/e0/90/0ee09021b6a34b0ef5bc662261b8b9d5.jpg" alt="Ferrari">
+            <img src="https://i.pinimg.com/1200x/59/05/af/5905af86bca25fa5fc91b82bc9084d81.jpg" alt="Ferrari">
+            <img src="https://i.pinimg.com/736x/8e/e0/9c/8ee09c8501fcfb77201fc5a50d5ad5ac.jpg" alt="Ferrari">
+            <img src="https://i.pinimg.com/736x/ec/08/1d/ec081db641a3c06b8e52ef33d958c812.jpg" alt="Ferrari">
+            <img src="https://i.pinimg.com/736x/19/34/8b/19348bb03423c9cb36d83910fd5d3770.jpg" alt="Ferrari">
+        </div>
+    </section>
+
+    <section class="quote-section">
+        <p class="quote">"The Ferrari LaFerrari isn't just driven — it's experienced, where every heartbeat syncs with 950 horses of pure Italian passion."</p>
+    </section>
+</body>
+</html>
