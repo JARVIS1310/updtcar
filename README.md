@@ -43,12 +43,12 @@ You only need a modern web browser (like Chrome, Firefox, or Safari).
 
 The page is built with a mobile-first approach, ensuring an optimal viewing experience on all devices.
 
-<img width="278" height="596" alt="image" src="https://github.com/user-attachments/assets/21cbbd31-8b79-4ae1-b550-83005b3120e2" /> 
-<img width="274" height="590" alt="image" src="https://github.com/user-attachments/assets/477a6811-a705-472c-ba63-2385461bf40f" />
+<img width="271" height="580" alt="image" src="https://github.com/user-attachments/assets/21cbbd31-8b79-4ae1-b550-83005b3120e2" /> 
+<img width="271" height="580" alt="image" src="https://github.com/user-attachments/assets/477a6811-a705-472c-ba63-2385461bf40f" />
 <img width="271" height="580" alt="image" src="https://github.com/user-attachments/assets/697a08f6-9569-484c-aaa3-2e892b29f978" />
 
 
-                                                                 The site adapts perfectly to smaller screens.*
+   The site adapts perfectly to smaller screens.
 
 ## 🎯 Key Sections Explained
 
