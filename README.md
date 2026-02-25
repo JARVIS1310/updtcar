@@ -1,8 +1,4 @@
-Here is your **complete professional remake of `car.md`**, structured exactly like `react.md` — clean, technical, detailed, and portfolio-ready.
-
-You can directly replace your entire `car.md` with this:
-
----
+# ___Imperial Motors Showcase___
 
 # BMW M4 – Premium Automotive Showcase Landing Page
 
