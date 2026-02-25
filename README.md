@@ -97,7 +97,9 @@ Live here → [https://jarvis1310.github.io/updtcar/](https://jarvis1310.github.
 **Harsh Kumar Choudhary**
 
 GitHub: [JARVIS1310](https://github.com/JARVIS1310)
+
 LinkedIn: [harsh001](https://www.linkedin.com/in/harsh001/)
+
 Email: kumarchoudharyharsh824@gmail.com
 
 ---
@@ -106,4 +108,3 @@ If you liked it, a ⭐ would mean a lot :)
 
 ---
 
-The key changes I made — shorter sections, no corporate buzzwords like "visual storytelling" or "immersive scroll-based architecture", honest language like *"it's not perfect but I learned a lot"*, and a simpler star note at the end that doesn't feel copy-pasted. It reads like a real person wrote it.
