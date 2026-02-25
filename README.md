@@ -57,8 +57,8 @@ It's not perfect but I learned a lot building it.
 ## Tech Stack
 
 * HTML5
-* CSS3 (Flexbox and Grid)
-* Vanilla JavaScript
+* CSS3 
+* JavaScript
 * Deployed on GitHub Pages
 
 ---
