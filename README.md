@@ -6,8 +6,9 @@ A modern, visually striking landing page dedicated to the BMW M4, built to showc
 
 ## 📸 Project Preview
 
-![BMW M4 Website Screenshot](link-to-your-screenshot-1.png)
-*Caption: The hero section of the BMW M4 landing page.*
+<img width="1896" height="871" alt="Screenshot 2026-02-25 193655 (1)" src="https://github.com/user-attachments/assets/a4d53e98-89d4-4902-9ac8-66f4f7db32ee" />
+
+ The hero section of the BMW M4 landing page
 
 ## ✨ Features
 
@@ -42,8 +43,9 @@ You only need a modern web browser (like Chrome, Firefox, or Safari).
 
 The page is built with a mobile-first approach, ensuring an optimal viewing experience on all devices.
 
-![Mobile View Screenshot](link-to-your-mobile-screenshot.png)
-*Caption: The site adapts perfectly to smaller screens.*
+<img width="278" height="596" alt="image" src="https://github.com/user-attachments/assets/21cbbd31-8b79-4ae1-b550-83005b3120e2" />
+
+ The site adapts perfectly to smaller screens.*
 
 ## 🎯 Key Sections Explained
 
@@ -64,6 +66,13 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## 📬 Contact
 
-JARVIS1310 - [Your Twitter Handle or other link] - [your-email@example.com]
+Harsh Kumar Choudhary
 
-Project Link: [https://github.com/JARVIS1310/updtcar](https://github.com/JARVIS1310/updtcar)
+GitHub: https://github.com/JARVIS1310
+
+LinkedIn: https://www.linkedin.com/in/harsh001/
+
+Email: kumarchoudharyharsh824@gmail.com
+
+# Support My Work
+If you like this project, consider giving it a ⭐ on GitHub!
